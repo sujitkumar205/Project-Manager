@@ -1,0 +1,25 @@
+body{
+    /*background-color: #60a9ff;*/
+    background-image:url("../Background Images/loginbg.jpg");
+    background-repeat:no-repeat; 
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.panel{
+    background-color: black;
+    border-radius: 10px;
+     padding: 25px 25px;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     opacity: 0.95;
+     color: white;
+}
+
+.navbar{
+    background-color: black;
+}
