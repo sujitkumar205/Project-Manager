@@ -8,12 +8,25 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
     <link rel="stylesheet" href="CSS\signupStyle.css">
 </head>
 <body>
+  <script>
+    function check_pass() 
+    {
+      if (document.getElementById('password').value == document.getElementById('confirmPassword').value)
+      {
+        document.getElementById('submit').disabled = false;
+      }
+      else 
+      {
+        document.getElementById('submit').disabled = true;
+      }
+    }
+  </script>
     <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top">
-        <a href="#" class="navbar-brand"><img class="img-fluid" src="Images\mainLogo.png" alt=""></a>
+        <a href="home.html" class="navbar-brand"><img class="img-fluid" src="Images\mainLogo.png" alt=""></a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle Navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,7 +39,7 @@
               <a href="login.html" class="nav-link">LOGIN</a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link">CONTACT</a>
+              <a href="contact.html" class="nav-link">CONTACT</a>
             </li>
           </ul>
         </div>
@@ -64,11 +77,11 @@
                                 <div class="form-row">
                                   <div class="col-6">
                                     <label class="mb-2" for="password">Password</label>
-                                    <input type="password" class="form-control mb-2" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>   
+                                    <input type="password" class="form-control mb-2" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' required>   
                                   </div>
                                   <div class="col-6">                            
-                                    <label class="mb-2" for="conformPassword">Confirm Password</label>
-                                    <input type="password" class="form-control mb-2" id="conformPassword" placeholder="Confirm Password" required>
+                                    <label class="mb-2" for="confirmPassword">Confirm Password</label>
+                                    <input type="password" class="form-control mb-2" id="confirmPassword" placeholder="Confirm Password" onchange='check_pass();' required>
                                   </div> 
                                 </div>
                                   <div id="passwordHelpBlock" class="form-text">
@@ -76,7 +89,7 @@
                                   </div>                                
                               </div>
                             <div class="form-group text-center">
-                                <button type="button submit" class="btn btn-primary px-4 py-2">Submit</button>
+                                <button type="button submit" id="submit" class="btn btn-primary px-4 py-2">Submit</button>
                             </div>
                         </form>
                     </div>

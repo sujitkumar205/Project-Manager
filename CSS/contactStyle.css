@@ -1,3 +1,8 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -47,52 +52,54 @@ html{
     font-family: 'Open Sans', sans-serif;
 }
 
-
 body{
-    /*background-color: #60a9ff;*/
-    background-image:url("../Background Images/signupbg.jpg");
-    background-repeat:no-repeat; 
-    background-size:cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+     background-image:url("../Background Images/loginbg.jpg");
+     background-repeat:no-repeat; 
+     background-size:cover;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
 }
 
 .panel{
     background-color: black;
-   /* border-radius: 10px;*/
-    padding: 25px 25px;
+     padding: 25px 25px;
+     width: 100%;
+     display: flex;
+     flex-direction: row;
+     opacity: 0.95;
+     color: white;
+}
+
+.contactTitle{
+    border-bottom: 1px solid #e1f1ff;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 2rem;
+    font-size: 1.5rem;
+}
+
+
+.contactImage{
+    padding-top: 2rem;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    opacity: 0.95;
-    color: white;
+    max-width: 100%;
 }
 
-.carousel{
-    margin-top: 0px;
-  }
-  .carousel-inner{
-    height: 100px;
-  }
-  .carousel-caption{
-    color: white;
-    top: 10%;
-  }
-
-  .display-5{
-      font-size: large;
-  }
-
-  .padding-0{
-    padding-right:0;
-    padding-left:0;
+.contactDetails{
+    font-weight: 100;
+    letter-spacing: 1px;
+    padding: 2rem;
+    font-size: 1rem;
 }
 
-.padding-slider{
-    padding-top: 80px;
-    padding-bottom: 80px;
+.col-4{
+    border-right: 1px solid #e1f1ff;
+}
+
+.col-4:last-child{
+    border-right: none;
 }
 
 .navbar{
