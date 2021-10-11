@@ -1,3 +1,8 @@
+<?php 
+session_start();
+$_SESSION['username'] = "";
+$_SESSION['role'] = "";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +40,9 @@
             <div class="row align-items-center justify-content-center pt-5">
                 <div class="col-10 col-lg-6">
                     <div class="panel">
-                        <form>
+                        <form action="" method="POST">
+                        <legend>    
+                          <fieldset> 
                             <div class="form-group text-center mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
@@ -44,25 +51,28 @@
                             </div>                            
                             <div class="form-group mb-4">
                                 <label class="mb-2" for="emailID">Email Address</label>
-                                <input type="email" class="form-control" id="emailID" placeholder="name@example.com" required>
+                                <input type="email" class="form-control" id="emailID" name="emailID" placeholder="name@example.com" required>
                             </div>
 
                             <div class="form-group mb-4">
                                 <label class="mb-2" for="password">Password</label>
-                                <input type="password" class="form-control mb-2" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                <input type="password" class="form-control mb-2" name="password" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                 <div id="passwordHelpBlock" class="form-text">
                                     Your password must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 characters.
                                 </div>
                             </div>
                             <div class="form-group text-center">
-                                <button type="button submit" class="btn btn-primary px-4 py-2">Submit</button>
+                                <button type="button submit" name="submit" class="btn btn-primary px-4 py-2">Submit</button>
                             </div>
+                            </fieldset>    
+                        </legend>  
                         </form>
                     </div>
                 </div>
             </div>
         </section>
 
+        <?php include('PHP\loginUser.php') ?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -48,7 +48,9 @@
             <div class="row align-items-center justify-content-center no-gutter pt-5">
                 <div class="col-6 padding-0">
                     <div class="panel">
-                        <form>
+                        <form action="" method="POST">
+                          <legend>    
+                          <fieldset>  
                             <div class="form-group text-center mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
@@ -59,29 +61,44 @@
                               <div class="col-8">
                                 <div class="form-group mb-3">
                                   <label class="mb-2" for="empName">Name</label>
-                                  <input type="input" class="form-control" id="empName" placeholder="Name" required>
+                                  <input type="input" class="form-control" id="empName" name="empName" placeholder="Name" required>
                                 </div>   
                               </div>
                               <div class="col-4">
                                 <div class="form-group mb-3">
                                   <label class="mb-2" for="empID">Employee ID</label>
-                                  <input type="input" class="form-control" id="empID" placeholder="12345" maxlength="5" minlength="5" required>
+                                  <input type="input" class="form-control" id="empID" name="empID" placeholder="12345" maxlength="5" minlength="5" required>
                                 </div>
                               </div>
-                          </div>                         
-                            <div class="form-group mb-3">
-                                <label class="mb-2" for="emailID">Email Address</label>
-                                <input type="email" class="form-control" id="emailID" placeholder="name@example.com" required>
-                            </div>
+                          </div> 
+                          <div class="form-row">                    
+                              <div class="form-group mb-3 col-6">
+                                  <label class="mb-2" for="emailID">Email Address</label>
+                                  <input type="email" class="form-control" id="emailID" name="emailID" placeholder="name@example.com" required>
+                              </div>
+                              <div class="form-group mb-3 col-6">
+                                <label class="mb-2" for="role">Role</label>
+                                <div>
+                                  <select id="role" name="role" class="custom-select" aria-label="Default select example">
+                                    <option selected>Select Your Role</option>
+                                    <option value="1">Admin</option>
+                                    <option value="2">Manager</option>
+                                    <option value="3">Developer</option>
+                                    <option value="4">Tester</option>
+                                    <option value="5">Guest</option>
+                                  </select>
+                                </div>
+                              </div>
+                          </div>    
                               <div class="form-group mb-3">
                                 <div class="form-row">
                                   <div class="col-6">
                                     <label class="mb-2" for="password">Password</label>
-                                    <input type="password" class="form-control mb-2" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' required>   
+                                    <input type="password" class="form-control mb-2" id="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' required>   
                                   </div>
                                   <div class="col-6">                            
                                     <label class="mb-2" for="confirmPassword">Confirm Password</label>
-                                    <input type="password" class="form-control mb-2" id="confirmPassword" placeholder="Confirm Password" onchange='check_pass();' required>
+                                    <input type="password" class="form-control mb-2" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onchange='check_pass();' required>
                                   </div> 
                                 </div>
                                   <div id="passwordHelpBlock" class="form-text">
@@ -89,8 +106,10 @@
                                   </div>                                
                               </div>
                             <div class="form-group text-center">
-                                <button type="button submit" id="submit" class="btn btn-primary px-4 py-2">Submit</button>
+                                <button type="button submit" id="submit" name="submit" class="btn btn-primary px-4 py-2">Submit</button>
                             </div>
+                          </fieldset>    
+                        </legend>   
                         </form>
                     </div>
                 </div>
@@ -131,6 +150,10 @@
             </div>
         </section>
 
+        <?php include('PHP\addUser.php') ?>
+
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -138,3 +161,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
+
