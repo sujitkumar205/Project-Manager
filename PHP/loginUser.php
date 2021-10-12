@@ -22,7 +22,9 @@
             $_SESSION['username'] = $emailID;
             $sqlrole="SELECT role FROM userdata WHERE emailID='$emailID' AND password='$password'"; 
             $resultRole=mysqli_query($con,$sqlrole);
-            $_SESSION['role'] = $resultRole;
+            while ($row = $resultRole->fetch_assoc()){
+              $_SESSION['role'] = $row['role'];
+            }
             $message = "Successfully Logged In";
             echo "<script type='text/javascript'>alert('$message');
                   window.location.href='http://localhost/ProjectManager/myTask.php';      

@@ -28,7 +28,7 @@ $_SESSION['role'] = "";
               <a href="index.html" class="nav-link">HOME</a>
             </li>
             <li class="nav-item">
-              <a href="signup.html" class="nav-link">SIGN UP</a>
+              <a href="signup.php" class="nav-link">SIGN UP</a>
             </li>
             <li class="nav-item">
               <a href="contact.html" class="nav-link">CONTACT</a>

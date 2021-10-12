@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    $role = $_SESSION['role'];
+} else {
+    die('$'."_SESSION['username'] isn't set because you had never been at file one");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +34,7 @@
               <a href="index.html" class="nav-link">HOME</a>
             </li>
             <li class="nav-item">
-              <a href="logout.html" class="nav-link">LOGOUT</a>
+              <a href="logout.php" class="nav-link">LOGOUT</a>
             </li>
             <li class="nav-item">
               <a href="contact.html" class="nav-link">CONTACT</a>
@@ -34,8 +43,9 @@
         </div>
       </nav>
 
-      <section class="container-fluid">
-          <div class="row h-100">
+      <section class="container-fluid p-0">
+          <div class="form-row align-items-center no-gutter">
+
               <div id="sidenavbar" class="col-2 sidenav hidden-md-down">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -51,6 +61,62 @@
                         <a class="nav-link" href="#">Disabled</a>
                         </li>
                     </ul>
+              </div>
+
+              <div class="col-10">
+                <div class="row align-items-center justify-content-center">
+                  <div class="col-9">
+                    <div class="panel">
+                        <form action="" method="POST">
+                          <legend>    
+                            <fieldset>
+
+                              <h1 class="display-4 mb-2">Add New Issue</h1>
+                              <div class="form-group">
+                                <label for="description" class="mb-2">
+                                  Description
+                                </label>
+                                <textarea class="form-control" name="description" row="4"></textarea>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="mb-2" for="severity">Severity</label>
+                                  <div>
+                                    <select id="severity" name="severity" class="custom-select" aria-label="Default select example">
+                                      <option selected>Select Severity of Issue</option>
+                                      <option value="1">Low</option>
+                                      <option value="2">Medium</option>
+                                      <option value="3">High</option>
+                                    </select>
+                                  </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="mb-2" for="assign">Assign To</label>
+                                  <div>
+                                    <select id="severity" name="assign" class="custom-select" aria-label="Default select example">
+                                    <?php
+                                      $con=mysqli_connect('localhost','root','') or die(mysql_error());    
+                                      mysqli_select_db($con,'userdata') or die("cannot select DB");
+                                      $sql = mysqli_query($con, "SELECT * FROM userdata");                                
+                                      while ($row = $sql->fetch_assoc()){
+                                        $rowrole = $row['role'];
+                                        if($rowrole>=$role && $row['emailID']!=$username)
+                                        {
+                                          echo "<option value=\"owner1\">" . $row['name'] . "</option>";
+                                        }                                      
+                                      }
+                                    ?>
+                                    </select>
+                                  </div>
+                              </div>
+
+                            </fieldset>
+                          </legend>
+                        </form>
+                      </div>
+                    </div>
+                </div>
               </div>
           </div>
       </section>

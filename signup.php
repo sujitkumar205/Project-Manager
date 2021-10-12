@@ -36,7 +36,7 @@
               <a href="index.html" class="nav-link">HOME</a>
             </li>
             <li class="nav-item">
-              <a href="login.html" class="nav-link">LOGIN</a>
+              <a href="login.php" class="nav-link">LOGIN</a>
             </li>
             <li class="nav-item">
               <a href="contact.html" class="nav-link">CONTACT</a>
