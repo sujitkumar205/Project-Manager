@@ -80,7 +80,7 @@
                                 <label class="mb-2" for="role">Role</label>
                                 <div>
                                   <select id="role" name="role" class="custom-select" aria-label="Default select example">
-                                    <option selected>Select Your Role</option>
+                                    <option value="" disabled selected>Select Your Role</option>
                                     <option value="1">Admin</option>
                                     <option value="2">Manager</option>
                                     <option value="3">Developer</option>

@@ -18,7 +18,7 @@ if(isset($_SESSION['username'])) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
-    <link rel="stylesheet" href="CSS\myTask.css">
+    <link rel="stylesheet" href="CSS\raise.css">
 
 
 </head>
@@ -49,16 +49,16 @@ if(isset($_SESSION['username'])) {
               <div id="sidenavbar" class="col-2 sidenav hidden-md-down">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Active</a>
+                        <a class="nav-link" href="assign.php">Assign Task</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="raise.php">Raise Issue</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="myTask.php">My Tasks</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Disabled</a>
+                        <a class="nav-link" href="#">All Tasks</a>
                         </li>
                     </ul>
               </div>
@@ -71,7 +71,7 @@ if(isset($_SESSION['username'])) {
                           <legend>    
                             <fieldset>
 
-                              <h1 class="display-4 mb-2">Add New Issue</h1>
+                              <h1 class="display-4 mb-2">Raise Issue</h1>
                               <div class="form-group">
                                 <label for="description" class="mb-2">
                                   Description
@@ -92,17 +92,17 @@ if(isset($_SESSION['username'])) {
                               </div>
 
                               <div class="form-group">
-                                <label class="mb-2" for="assign">Assign To</label>
+                                <label class="mb-2" for="raise">Raise To</label>
                                   <div>
-                                    <select id="severity" name="assign" class="custom-select" aria-label="Default select example">
-                                    <option value="" disabled selected>Assign To</option>
+                                    <select id="raise" name="raise" class="custom-select" aria-label="Default select example">
+                                    <option value="" disabled selected>Raise To</option>
                                     <?php
                                       $con=mysqli_connect('localhost','root','') or die(mysql_error());    
                                       mysqli_select_db($con,'userdata') or die("cannot select DB");
                                       $sql = mysqli_query($con, "SELECT * FROM userdata");                                
                                       while ($row = $sql->fetch_assoc()){
                                         $rowrole = $row['role'];
-                                        if($rowrole>=$role && $row['emailID']!=$username)
+                                        if($rowrole<=$role && $row['emailID']!=$username)
                                         {
                                           echo "<option value=\"".$row['emailID']."\">" . $row['name'] . "</option>";
                                         }                                      
@@ -125,6 +125,8 @@ if(isset($_SESSION['username'])) {
               </div>
           </div>
       </section>
+
+      <?php include('PHP\raiseIssue.php') ?>
 
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

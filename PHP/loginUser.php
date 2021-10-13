@@ -27,7 +27,7 @@
             }
             $message = "Successfully Logged In";
             echo "<script type='text/javascript'>alert('$message');
-                  window.location.href='http://localhost/ProjectManager/myTask.php';      
+                  window.location.href='http://localhost/ProjectManager/assign.php';      
                   </script>"; 
           }
         else{
