@@ -1,0 +1,145 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html{
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background-image:url("../Background Images/workplacebg.jpg");
+    background-repeat:no-repeat; 
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.navbar{
+    background-color: #000000;
+	color: F0F5F9;
+}
+
+#mainNavbar{
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+#mainNavbar .navbar-toggler{
+    background-color: #EEEEEE;
+}
+
+
+#mainNavbar .nav-link:hover{
+    color: #BD4B4B;   
+}
+#mainNavbar .nav-link{
+    color: #EEEEEE;     
+}
+
+
+.sidenav{
+    background-color: #000000;
+    overflow: hidden;
+    z-index: 3;
+    font-size: 1.5rem;
+    font-weight: 100;
+    position: fixed;    
+    top:0;
+    left:0;
+}
+
+
+.sidenav > ul {
+    padding-top: 4rem;
+    min-height: 100vh;
+}
+
+#sidenavbar .nav-link:hover{
+    color: #EEEEEE;   
+}
+#sidenavbar .nav-link{
+    color: #BD4B4B;
+}
+
+#sidenavbar .nav-item{
+    padding-top: 1rem;
+}
+
+.panel{
+    background-color: #000000;
+    border-radius: 10px;
+     padding: 25px 25px;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     opacity: 0.95;
+     color: #EEEEEE;
+     margin-bottom: 3rem;
+     margin-left: 10rem;
+}
+
+.panel:nth-of-type(1){
+    margin-top: 5rem;
+}
+
+body {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+body::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+.display-4{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.panTitle{
+    color: #BD4B4B;
+}

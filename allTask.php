@@ -13,12 +13,12 @@ if(isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Tasks</title>
+    <title>All Tasks</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
-    <link rel="stylesheet" href="CSS\myTask.css">
+    <link rel="stylesheet" href="CSS\allTask.css">
 
 
 </head>
@@ -75,51 +75,33 @@ if(isset($_SESSION['username'])) {
                     mysqli_select_db($con,'userdata') or die("cannot select DB");
                     $sql = mysqli_query($con, "SELECT * FROM assign");                                
                     while ($row = $sql->fetch_assoc()){
-                      if($row['assignTo'] == $username)
+                      if($row['status'] != 'DONE')
                       {
-                        if($row['status'] != 'DONE')
-                        {
-                          echo "<form method=\"POST\">";
-                          echo "<div class=\"panel\">";
-                          echo "<span class= \"display-4\"><span class = \"panTitle\">Description:</span>  ".$row['description']."</span>";
-                          //echo "<p>".$row['description']."</p>";
-                          echo "<span class= \"display-4\"><span class = \"panTitle\">Severity:</span>  ".$row['severity']."</span>";
-                          //echo "<p>".$row['severity']."</p>";
-                          echo "<span class= \"display-4\"><span class = \"panTitle\">Assigned By:</span>  ".$row['assignBy']."</span>";
-                          echo "<div>";
-                          echo "<input type=\"hidden\" id=\"id\" name=\"id\" value=\"".$row['id']."\">";
-                          echo "<input type=\"hidden\" id=\"type\" name=\"type\" value=\"assign\">";
-                          echo "<button type=\"button submit\" name=\"submit\" class=\"btn btn-primary mt-2\">Complete</button>";
-                          echo "</div>";
-                          echo "</div>";
-                          echo "</form>";
-                        }
-                      }                                      
+                        echo "<div class=\"panel\">";
+                        echo "<span class= \"display-4\"><span class = \"panTitle\">Description:</span>  ".$row['description']."</span>";
+                        //echo "<p>".$row['description']."</p>";
+                        echo "<span class= \"display-4\"><span class = \"panTitle\">Severity:</span>  ".$row['severity']."</span>";
+                        //echo "<p>".$row['severity']."</p>";
+                        echo "<span class= \"display-4\"><span class = \"panTitle\">Assigned By:</span>  ".$row['assignBy']."</span>";
+                        echo "</div>";
+                      }                                 
                     }
 
                     $sql = mysqli_query($con, "SELECT * FROM raise");                                
                     while ($row = $sql->fetch_assoc()){
-                      if($row['raiseTo'] == $username)
+                      if($row['status'] != 'DONE')
                       {
-                        if($row['status'] != 'DONE')
-                        {
-                          echo "<form method=\"POST\">";
-                          echo "<div class=\"panel\">";
-                          echo "<span class= \"display-4\"><span class = \"panTitle\">Description:</span>  ".$row['description']."</span>";
-                          //echo "<p>".$row['description']."</p>";
-                          echo "<span class= \"display-4\"><span class = \"panTitle\">Severity:</span>  ".$row['severity']."</span>";
-                          //echo "<p>".$row['severity']."</p>";
-                          echo "<span class= \"display-4\"><span class = \"panTitle\">Raised By:</span>  ".$row['raiseBy']."</span>";
-                          echo "<div>";
-                          echo "<input type=\"hidden\" id=\"id\" name=\"id\" value=\"".$row['id']."\">";
-                          echo "<input type=\"hidden\" id=\"type\" name=\"type\" value=\"raise\">";
-                          echo "<button type=\"button submit\" name=\"submit\" class=\"btn btn-primary mt-2\">Complete</button>";
-                          echo "</div>";
-                          echo "</div>";
-                          echo "</form>";
-                        }
-                      }                                      
+                        echo "<div class=\"panel\">";
+                        echo "<span class= \"display-4\"><span class = \"panTitle\">Description:</span>  ".$row['description']."</span>";
+                        //echo "<p>".$row['description']."</p>";
+                        echo "<span class= \"display-4\"><span class = \"panTitle\">Severity:</span>  ".$row['severity']."</span>";
+                        //echo "<p>".$row['severity']."</p>";
+                        echo "<span class= \"display-4\"><span class = \"panTitle\">Raised By:</span>  ".$row['raiseBy']."</span>";
+                        //echo "<p>".$row['raiseBy']."</p>";
+                        echo "</div>";
+                      }                                   
                     }
+                  ?>
                   ?>                        
                     </div>
                   </div>
@@ -127,7 +109,6 @@ if(isset($_SESSION['username'])) {
               </div>
             </div>
       </section>
-      <?php include('PHP\myTaskDone.php') ?>
 
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -136,5 +117,3 @@ if(isset($_SESSION['username'])) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
-
-

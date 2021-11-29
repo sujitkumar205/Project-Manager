@@ -13,7 +13,7 @@ if(isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Tasks</title>
+    <title>Raise Issue</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -58,7 +58,10 @@ if(isset($_SESSION['username'])) {
                         <a class="nav-link" href="myTask.php">My Tasks</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">All Tasks</a>
+                        <a class="nav-link" href="allTask.php">All Tasks</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="scoreboard.php">Scoreboard</a>
                         </li>
                     </ul>
               </div>
