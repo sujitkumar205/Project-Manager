@@ -83,6 +83,7 @@ if(isset($_SESSION['username'])) {
                         echo "<span class= \"display-4\"><span class = \"panTitle\">Severity:</span>  ".$row['severity']."</span>";
                         //echo "<p>".$row['severity']."</p>";
                         echo "<span class= \"display-4\"><span class = \"panTitle\">Assigned By:</span>  ".$row['assignBy']."</span>";
+                        echo "<span class= \"display-4\"><span class = \"panTitle\">Assigned To:</span>  ".$row['assignTo']."</span>";
                         echo "</div>";
                       }                                 
                     }
@@ -97,6 +98,7 @@ if(isset($_SESSION['username'])) {
                         echo "<span class= \"display-4\"><span class = \"panTitle\">Severity:</span>  ".$row['severity']."</span>";
                         //echo "<p>".$row['severity']."</p>";
                         echo "<span class= \"display-4\"><span class = \"panTitle\">Raised By:</span>  ".$row['raiseBy']."</span>";
+                        echo "<span class= \"display-4\"><span class = \"panTitle\">Raised To:</span>  ".$row['raiseTo']."</span>";
                         //echo "<p>".$row['raiseBy']."</p>";
                         echo "</div>";
                       }                                   
